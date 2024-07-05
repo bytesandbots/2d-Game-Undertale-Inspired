@@ -12,10 +12,11 @@ public class Inventory : MonoBehaviour
     public TMP_Text inBattleBandageText;
     public TMP_Text inBattleBandagePremiumText;
     public GameObject battleItemPanel;
+    public PlayerHealth playerHealth;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -55,5 +56,43 @@ public class Inventory : MonoBehaviour
     public void CloseBattleItemPanel()
     {
         battleItemPanel.SetActive(false);
+    }
+
+    public void UseBandage()
+    {
+        if (backpack.ContainsKey(bandagePrefab) && backpack[bandagePrefab] >= 1)
+        {
+            backpack[bandagePrefab] -= 1;
+            inBattleBandageText.text = "Bandage " + backpack[bandagePrefab].ToString() + "x";
+            playerHealth.health += 15;
+            startFight();
+        }
+        else
+        {
+            return;
+        }
+    }
+
+    public void UseBandagePremium()
+    {
+        if (backpack.ContainsKey(bandagePremiumPrefab) && backpack[bandagePremiumPrefab] >= 1)
+        {
+            backpack[bandagePremiumPrefab] -= 1;
+            inBattleBandagePremiumText.text = "Bandage Premium " + backpack[bandagePremiumPrefab].ToString() + "x";
+            playerHealth.health += 50;
+            startFight();
+        }
+        else
+        {
+            return;
+        }
+    }
+
+
+
+
+    public void startFight()
+    {
+
     }
 }
