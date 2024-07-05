@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
 
 public class Inventory : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Inventory : MonoBehaviour
     public GameObject bandagePremiumPrefab;
     public TMP_Text inBattleBandageText;
     public TMP_Text inBattleBandagePremiumText;
+    public GameObject battleItemPanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,8 +45,15 @@ public class Inventory : MonoBehaviour
             }
             inBattleBandagePremiumText.text = "Bandage Premium " + backpack[bandagePremiumPrefab].ToString() + "x";
         }
+    }
 
-        
-        
+    public void OpenBattleItemPanel()
+    {
+        battleItemPanel.SetActive(true);
+    }
+
+    public void CloseBattleItemPanel()
+    {
+        battleItemPanel.SetActive(false);
     }
 }
