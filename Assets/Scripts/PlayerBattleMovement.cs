@@ -5,14 +5,25 @@ using UnityEngine;
 public class PlayerBattleMovement : MonoBehaviour
 {
     public float moveSpeed;
+    public float activeMoveSpeed;
     public Rigidbody2D rb;
     private Vector2 moveInput;
-    //public Input Input.KeyCode.Space;
+    public KeyCode rollKey = KeyCode.Space;
+    public float rollSpeed;
+
+    public float rollLength = .5f;
+    public float rollCooldown = 1f;
+
+    private float rollCounter;
+    private float rollCoolCounter;
+
+    public bool rolling;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        activeMoveSpeed = moveSpeed;
     }
 
     // Update is called once per frame
@@ -23,6 +34,35 @@ public class PlayerBattleMovement : MonoBehaviour
 
         moveInput.Normalize();
 
-        rb.velocity = moveInput * moveSpeed;
+
+        if (!rolling) { rb.velocity = moveInput * activeMoveSpeed; }
+
+        if (Input.GetKeyDown(rollKey))
+        {
+            if(rollCoolCounter <= 0 && rollCounter <= 0)
+            {
+                activeMoveSpeed = rollSpeed;
+                rollCounter = rollLength;
+                rolling = true;
+                rb.velocity = moveInput * activeMoveSpeed;
+            }
+        }
+
+        if(rollCounter > 0)
+        {
+            rollCounter -= Time.deltaTime;
+
+            if(rollCounter <= 0)
+            {
+                rolling = false;
+                activeMoveSpeed = moveSpeed;
+                rollCoolCounter = rollCooldown;
+            }
+        }
+
+        if(rollCoolCounter > 0)
+        {
+            rollCoolCounter -= Time.deltaTime;
+        }
     }
 }
