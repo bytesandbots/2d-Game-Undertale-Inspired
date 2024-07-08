@@ -19,6 +19,8 @@ public class PlayerBattleMovement : MonoBehaviour
 
     public bool rolling;
 
+    public battleManager battleManager;
+
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +37,7 @@ public class PlayerBattleMovement : MonoBehaviour
         moveInput.Normalize();
 
 
-        if (!rolling) { rb.velocity = moveInput * activeMoveSpeed; }
+        if (!rolling) { rb.velocity = moveInput * activeMoveSpeed * battleManager.battleTime; }
 
         if (Input.GetKeyDown(rollKey))
         {
@@ -44,7 +46,7 @@ public class PlayerBattleMovement : MonoBehaviour
                 activeMoveSpeed = rollSpeed;
                 rollCounter = rollLength;
                 rolling = true;
-                rb.velocity = moveInput * activeMoveSpeed;
+                rb.velocity = moveInput * activeMoveSpeed * battleManager.battleTime;
             }
         }
 
