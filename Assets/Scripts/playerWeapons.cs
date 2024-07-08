@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class playerWeapons : MonoBehaviour
 {
-    public KeyCode leashKey = KeyCode.Mouse0;
+    public KeyCode punchKey = KeyCode.Mouse0;
+    public punchAnimation punchAnimation;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,9 +17,14 @@ public class playerWeapons : MonoBehaviour
     {
         //Leash
 
-        if (Input.GetKeyDown(leashKey))
+        if (Input.GetKeyDown(punchKey))
         {
+            punchAnimation.animator.SetBool("isPunching", true);
+        }
 
+        if (Input.GetKeyUp(punchKey))
+        {
+            punchAnimation.animator.SetBool("isPunching", false);
         }
     }
 }
