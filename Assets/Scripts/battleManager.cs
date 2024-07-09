@@ -8,11 +8,13 @@ public class battleManager : MonoBehaviour
     public float battleTime;
     public float battleTimer;
     public float maxBattleTimer;
+    public GameObject battleDecisionPanel;
+    public GameObject healthBar;
 
     // Start is called before the first frame update
     void Start()
     {
-        battleTimer = maxBattleTimer;
+        battleTimer = 0;
     }
 
     // Update is called once per frame
@@ -20,6 +22,9 @@ public class battleManager : MonoBehaviour
     {
         if (isBattleFighting) { battleTime = 1; }
         if (!isBattleFighting) { battleTime = 0; }
-        battleTime -= Time.time;
+        battleTime += Time.time;
+
+        battleDecisionPanel.SetActive(!isBattleFighting);
+        healthBar.SetActive(!isBattleFighting);
     }
 }
