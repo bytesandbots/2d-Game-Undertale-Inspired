@@ -5,11 +5,13 @@ using UnityEngine;
 public class LookAtMouse : MonoBehaviour
 {
     private Camera cam;
+    public bool canSpinnyness;
 
     // Start is called before the first frame update
     void Start()
     {
         cam = Camera.main;
+        canSpinnyness = true;
     }
 
     // Update is called once per frame
@@ -19,7 +21,7 @@ public class LookAtMouse : MonoBehaviour
         float angleRad = Mathf.Atan2(mousePos.y - transform.position.y, mousePos.x - transform.position.x);
         float angleDeg = (180 / Mathf.PI) * angleRad - 90; // Offset this by 90 Degrees
 
-        transform.rotation = Quaternion.Euler(0f, 0f, angleDeg);
+        if (canSpinnyness) { transform.rotation = Quaternion.Euler(0f, 0f, angleDeg); }
         Debug.DrawLine(transform.position, mousePos, Color.white, Time.deltaTime);
     }
 }

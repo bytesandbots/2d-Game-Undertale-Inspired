@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class playerWeapons : MonoBehaviour
 {
-    public KeyCode punchKey = KeyCode.Mouse0;
+    Animator animator;
+    public KeyCode swordKey = KeyCode.Mouse0;
+    public LookAtMouse lookAtMouse;
     // Start is called before the first frame update
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -16,6 +18,10 @@ public class playerWeapons : MonoBehaviour
     {
         //Sword
 
-        
+        if (Input.GetKeyDown(swordKey))
+        {
+            animator.SetTrigger("SwordAttackTrigger");
+            lookAtMouse.canSpinnyness = false;
+        }
     }
 }

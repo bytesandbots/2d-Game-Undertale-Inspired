@@ -19,7 +19,7 @@ public class PlayerBattleMovement : MonoBehaviour
 
     public bool rolling;
 
-    public battleManager battleManager;
+    public BattleManager battleManager;
 
 
     // Start is called before the first frame update
