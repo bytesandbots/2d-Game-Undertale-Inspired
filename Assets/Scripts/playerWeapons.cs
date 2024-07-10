@@ -22,6 +22,14 @@ public class playerWeapons : MonoBehaviour
         {
             animator.SetTrigger("SwordAttackTrigger");
             lookAtMouse.canSpinnyness = false;
+            StartCoroutine(WaitForCanSpinnyness());
         }
+    }
+
+    IEnumerator WaitForCanSpinnyness()
+    {
+        yield return new WaitForSeconds(1.27f);
+        print("BEANS");
+        lookAtMouse.canSpinnyness = true;
     }
 }

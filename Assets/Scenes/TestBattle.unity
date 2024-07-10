@@ -3101,7 +3101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swordKey: 323
-  lookAtMouse: {fileID: 0}
+  lookAtMouse: {fileID: 42732650}
 --- !u!114 &1586957187
 MonoBehaviour:
   m_ObjectHideFlags: 0
