@@ -28,8 +28,7 @@ public class playerWeapons : MonoBehaviour
 
     IEnumerator WaitForCanSpinnyness()
     {
-        yield return new WaitForSeconds(1.27f);
-        print("BEANS");
+        yield return new WaitForSeconds(1);
         lookAtMouse.canSpinnyness = true;
     }
 }
