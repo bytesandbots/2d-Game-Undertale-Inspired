@@ -8,4 +8,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestForOverworld.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/TestBattle.unity
+    guid: 59d00e264e65c114a9b099153d409e34
+  - enabled: 1
+    path: Assets/Scenes/deathScreen.unity
+    guid: bfaf3b07744cec349848bd78b3968350
+  - enabled: 1
+    path: Assets/Scenes/Enemy1.unity
+    guid: 28da0ef250ffa044ea8e05094355b366
+  - enabled: 1
+    path: Assets/Scenes/Enemy2.unity
+    guid: a318b5ccd73a6584da59bbf3a3a466e5
+  - enabled: 1
+    path: Assets/Scenes/Enemy3.unity
+    guid: 1487739aad90c7b4ca9a55914801a4d8
+  - enabled: 1
+    path: Assets/Scenes/Enemy4.unity
+    guid: 9c684c827b1d6ee478c598108b08ffff
   m_configObjects: {}

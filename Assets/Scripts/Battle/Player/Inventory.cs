@@ -12,7 +12,7 @@ public class Inventory : MonoBehaviour
     public TMP_Text inBattleBandageText;
     public TMP_Text inBattleBandagePremiumText;
     public GameObject battleItemPanel;
-    public PlayerHealth playerHealth;
+    public PlayerStats playerHealth;
     // Start is called before the first frame update
     void Start()
     {

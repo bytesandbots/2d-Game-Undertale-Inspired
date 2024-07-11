@@ -34,12 +34,19 @@ public class BattleManager : MonoBehaviour
     {
         if (isBattleFighting) { battleTime = 1; }
         if (!isBattleFighting) { battleTime = 0; }
-        battleTimer += Time.time;
+        battleTimer += Time.time / 10000 * battleTime;
 
         battleDecisionPanel.SetActive(!isBattleFighting);
-        healthBar.SetActive(!isBattleFighting);
+        //healthBar.SetActive(!isBattleFighting);
 
         if (Input.GetKeyDown(KeyCode.F5)) { isBattleFighting = !isBattleFighting; }
+
+
+        if(battleTimer > maxBattleTimer)
+        {
+            battleTimer = 0;
+            isBattleFighting = false;
+        }
     }
 
 

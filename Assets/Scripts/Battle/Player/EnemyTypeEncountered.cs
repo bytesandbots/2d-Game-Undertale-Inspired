@@ -1,10 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class fightButton : MonoBehaviour
+public enum EncounterTypeData
 {
-    public GameObject fightPanel;
+    Enemy1,
+    Enemy2,
+    Enemy3,
+    Enemy4
+}
+
+public class EnemyTypeEncountered : MonoBehaviour
+{
+    public EncounterType encounterType;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,16 +22,5 @@ public class fightButton : MonoBehaviour
     void Update()
     {
         
-    }
-
-
-    public void openFightPanel()
-    {
-        fightPanel.SetActive(true);
-    }
-
-    public void closeFightPanel()
-    {
-        fightPanel.SetActive(false);
     }
 }

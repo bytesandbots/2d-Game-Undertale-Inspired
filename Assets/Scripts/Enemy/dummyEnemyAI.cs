@@ -9,6 +9,7 @@ public class dummyEnemyAI : MonoBehaviour
     public float targetDistance = 3.0f; // Desired distance from the player
     public float tolerance = 0.5f;     // Tolerance range to avoid shakiness
     public bool moveTowards = true;    // Flag to control movement
+    public BattleManager battleManager;
 
     void Update()
     {
@@ -26,12 +27,12 @@ public class dummyEnemyAI : MonoBehaviour
             if (distance > targetDistance + tolerance)
             {
                 // Move towards the player
-                movement = direction * speed;
+                movement = direction * speed * battleManager.battleTime;
             }
             else if (distance < targetDistance - tolerance)
             {
                 // Move away from the player
-                movement = -direction * speed;
+                movement = -direction * speed * battleManager.battleTime;
             }
 
             // Move the enemy
