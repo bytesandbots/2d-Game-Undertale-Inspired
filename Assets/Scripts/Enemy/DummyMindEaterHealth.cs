@@ -6,10 +6,10 @@ public class DummyMindEaterHealth : MonoBehaviour
 {
     public int health;
     public int maxHealth;
-    public int defense;
-    public int speedBeforeKnockback;
 
     public dummyMindEaterAI dummyMindEaterAI;
+
+    public GameObject damageColor;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,24 +19,32 @@ public class DummyMindEaterHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision != null)
+        if(health <= 0)
         {
-            if (collision.transform.CompareTag("SwordDamageHitBox"))
-            {
-
-            }
+            Destroy(gameObject, .5f);
         }
     }
 
-    public IEnumerator DamageKnockBack()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        dummyMindEaterAI.speed = -20f;
-        yield return new WaitForSeconds(.2f);
-        dummyMindEaterAI.speed = -20f;
+        if (collision.transform.CompareTag("SwordDamageHitbox"))
+        {
+            print("BEANMS");
+            health -= 9;
+            damageColor.SetActive(true);
+            StartCoroutine(DamageIndicator());
+        }
+    }
+
+
+    public void DamageMindEater(int damage)
+    {
+        health -= damage;
+    }
+
+    public IEnumerator DamageIndicator()
+    {
+        yield return new WaitForSeconds(.5f);
+        damageColor.SetActive(false);
     }
 }
