@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 42732649}
   - component: {fileID: 42732648}
   - component: {fileID: 42732650}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerObj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -590,7 +590,7 @@ GameObject:
   - component: {fileID: 119773158}
   - component: {fileID: 119773157}
   - component: {fileID: 119773159}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: New Piskel (1)
   m_TagString: SwordDamageHitbox
   m_Icon: {fileID: 0}
@@ -2300,6 +2300,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   maxHealth: 10
+  damageCurrentTime: 0
+  damageMaxTime: 1
   dummyMindEaterAI: {fileID: 1158684386}
   damageColor: {fileID: 1511513774}
 --- !u!61 &1158684388
@@ -3549,7 +3551,7 @@ GameObject:
   - component: {fileID: 1586957185}
   - component: {fileID: 1586957186}
   - component: {fileID: 1586957188}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4833,7 +4835,7 @@ GameObject:
   - component: {fileID: 2057959808}
   - component: {fileID: 2057959807}
   - component: {fileID: 2057959806}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}

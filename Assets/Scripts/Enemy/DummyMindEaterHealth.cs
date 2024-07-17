@@ -6,6 +6,8 @@ public class DummyMindEaterHealth : MonoBehaviour
 {
     public int health;
     public int maxHealth;
+    public float damageCurrentTime;
+    public float damageMaxTime;
 
     public dummyMindEaterAI dummyMindEaterAI;
 
@@ -23,16 +25,23 @@ public class DummyMindEaterHealth : MonoBehaviour
         {
             Destroy(gameObject, .5f);
         }
+
+
+        damageCurrentTime += Time.time;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.CompareTag("SwordDamageHitbox"))
         {
-            print("BEANMS");
-            health -= 9;
-            damageColor.SetActive(true);
-            StartCoroutine(DamageIndicator());
+            if(damageCurrentTime >= damageMaxTime)
+            {
+                print("BEANMS");
+                health -= 9;
+                damageColor.SetActive(true);
+                StartCoroutine(DamageIndicator());
+                transform.position = new Vector2(Random.Range(-24, 24), Random.Range(-24, 24));
+            }
         }
     }
 
