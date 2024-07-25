@@ -10,6 +10,7 @@ public class PlayerBattleMovement : MonoBehaviour
     private Vector2 moveInput;
     public KeyCode rollKey = KeyCode.Space;
     public float rollSpeed;
+    public Camera cam;
 
     public float rollLength = .5f;
     public float rollCooldown = 1f;
@@ -25,7 +26,7 @@ public class PlayerBattleMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        activeMoveSpeed = moveSpeed;
+        cam = Camera.main;
     }
 
     // Update is called once per frame

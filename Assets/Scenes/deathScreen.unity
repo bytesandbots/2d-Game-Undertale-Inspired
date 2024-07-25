@@ -738,4 +738,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Paneltitle: {fileID: 342854601}
   Paneldetermination: {fileID: 1052014378}
-  chanceOfTitle: 100
+  chanceOfTitle: 5

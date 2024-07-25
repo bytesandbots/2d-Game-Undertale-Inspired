@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DummyMindEaterHealth : MonoBehaviour
 {
@@ -23,11 +24,12 @@ public class DummyMindEaterHealth : MonoBehaviour
     {
         if(health <= 0)
         {
+            print("SceneManager.LoadScene(''TestForOverworld'')");
             Destroy(gameObject, .5f);
         }
 
 
-        damageCurrentTime += Time.time;
+        damageCurrentTime += Time.deltaTime;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -36,11 +38,8 @@ public class DummyMindEaterHealth : MonoBehaviour
         {
             if(damageCurrentTime >= damageMaxTime)
             {
-                print("BEANMS");
-                health -= 9;
                 damageColor.SetActive(true);
                 StartCoroutine(DamageIndicator());
-                transform.position = new Vector2(Random.Range(-24, 24), Random.Range(-24, 24));
             }
         }
     }
@@ -54,6 +53,8 @@ public class DummyMindEaterHealth : MonoBehaviour
     public IEnumerator DamageIndicator()
     {
         yield return new WaitForSeconds(.5f);
+        transform.position = new Vector2(Random.Range(-24, 24), Random.Range(-24, 24));
+        health -= 5;
         damageColor.SetActive(false);
     }
 }
