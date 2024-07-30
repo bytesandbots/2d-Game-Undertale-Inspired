@@ -1,20 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
-
+    public int defense;
     public int level;
     public int xp;
     public int health;
     public int maxHealth;
 
-    public TMP_Text healthText;
-    public Image healthBar;
+    public float lastOverworldXCords;
+    public float lastOverworldYCords;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,12 +29,10 @@ public class PlayerStats : MonoBehaviour
 
         if (health <= 0)
         {
+
             SceneManager.LoadScene("deathScreen");
+            DamagePlayer(-1000000000);
         }
-
-        healthBar.fillAmount = (float)health / (float)maxHealth;
-
-        healthText.text = health.ToString() + "/" + maxHealth.ToString();
 
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
@@ -46,6 +42,11 @@ public class PlayerStats : MonoBehaviour
 
     public void DamagePlayer(int damage)
     {
-        health -= damage;
+        health -= damage -= defense -= 1 / 100;
+    }
+
+    public void winBattle()
+    {
+
     }
 }

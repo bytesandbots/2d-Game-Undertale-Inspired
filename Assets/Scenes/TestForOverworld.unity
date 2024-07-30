@@ -402,10 +402,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e164ccf49d9b1164f88328ca4999dd9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defense: 1
   level: 0
   xp: 0
   health: 20
   maxHealth: 20
+  lastOverworldXCords: 0
+  lastOverworldYCords: 0
 --- !u!4 &677676138
 Transform:
   m_ObjectHideFlags: 0

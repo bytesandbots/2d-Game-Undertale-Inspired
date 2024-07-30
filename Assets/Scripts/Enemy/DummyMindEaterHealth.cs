@@ -25,6 +25,7 @@ public class DummyMindEaterHealth : MonoBehaviour
         if(health <= 0)
         {
             print("SceneManager.LoadScene(''TestForOverworld'')");
+
             Destroy(gameObject, .5f);
         }
 
