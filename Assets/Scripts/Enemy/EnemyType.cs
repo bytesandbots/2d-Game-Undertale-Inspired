@@ -8,7 +8,8 @@ public enum EncounterType
     Enemy1,
     Enemy2,
     Enemy3,
-    Enemy4
+    Enemy4,
+    TestBattle
 }
 public class EnemyType : MonoBehaviour
 {
