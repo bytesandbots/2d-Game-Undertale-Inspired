@@ -6,6 +6,14 @@ public class enemyCounter : MonoBehaviour
 {
     public PlayerStats playerStats;
     public float startingEnemies;
+    public float currentEnemies;
+
+
+    private void Awake()
+    {
+        playerStats = GameObject.Find("PlayerManager").GetComponent<PlayerStats>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {

@@ -11,6 +11,7 @@ public class DummyMindEaterHealth : MonoBehaviour
     public float damageMaxTime;
 
     public dummyMindEaterAI dummyMindEaterAI;
+    public enemyCounter enemyCounter;
 
     public GameObject damageColor;
     // Start is called before the first frame update
@@ -25,6 +26,7 @@ public class DummyMindEaterHealth : MonoBehaviour
         if(health <= 0)
         {
             print("SceneManager.LoadScene(''TestForOverworld'')");
+            enemyCounter.currentEnemies -= 1;
 
             Destroy(gameObject, .5f);
         }

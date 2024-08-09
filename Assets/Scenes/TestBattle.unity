@@ -2223,6 +2223,7 @@ MonoBehaviour:
   damageCurrentTime: 0
   damageMaxTime: 2
   dummyMindEaterAI: {fileID: 1158684386}
+  enemyCounter: {fileID: 1586957189}
   damageColor: {fileID: 1511513774}
 --- !u!61 &1158684388
 BoxCollider2D:
@@ -3587,6 +3588,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 0}
   startingEnemies: 0
+  currentEnemies: 0
 --- !u!1 &1643621766
 GameObject:
   m_ObjectHideFlags: 0
