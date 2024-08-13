@@ -12,6 +12,7 @@ public enum EncounterTypeData
 public class EnemyTypeEncountered : MonoBehaviour
 {
     public EncounterType encounterType;
+
     // Start is called before the first frame update
     void Start()
     {

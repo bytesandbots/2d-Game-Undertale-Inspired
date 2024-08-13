@@ -6,10 +6,13 @@ using UnityEngine.SceneManagement;
 public class EnemyEncounter : MonoBehaviour
 {
     public EnemyTypeEncountered enemyTypeEncountered;
+    public PlayerStats playerStats;
 
     // Start is called before the first frame update
     void Start()
     {
+        playerStats = GameObject.Find("PlayerManager").GetComponent<PlayerStats>();
+
         if (enemyTypeEncountered == null)
         {
             Debug.LogError("EnemyTypeEncountered is not assigned in the inspector.");
@@ -32,6 +35,11 @@ public class EnemyEncounter : MonoBehaviour
             // Set the EncounterType and print it
             enemyTypeEncountered.encounterType = enemyType.encounterType;
             Debug.Log(enemyType.encounterType);
+
+            Destroy(collision.gameObject);
+
+            playerStats.lastOverworldXCords = transform.position.x;
+            playerStats.lastOverworldYCords = transform.position.y;
 
             SceneManager.LoadScene(enemyTypeEncountered.encounterType.ToString());
         }

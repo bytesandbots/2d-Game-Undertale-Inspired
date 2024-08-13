@@ -47,6 +47,7 @@ public class PlayerStats : MonoBehaviour
 
     public void winBattle()
     {
-            
+        SceneManager.LoadScene("TestForOverworld");
+        transform.position = new Vector2(lastOverworldXCords, lastOverworldYCords);
     }
 }
